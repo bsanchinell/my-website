@@ -1,0 +1,225 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const timeline = [
+  {
+    org: 'AFSCME IU',
+    role: 'Executive Director',
+    period: '2025–Present',
+    description:
+      'Leading workforce development strategy for a national union, designing apprenticeship standards and career pathway systems for public sector workers.',
+  },
+  {
+    org: 'The Knowledge House',
+    role: 'Senior Program Director',
+    period: '2023–2024',
+    description:
+      'Directed tech training and workforce programs serving underrepresented communities across New York City with focus on equitable access to tech careers.',
+  },
+  {
+    org: 'NIIT / SEMI Americas',
+    role: 'National Talent Hub Director',
+    period: '2020–2023',
+    description:
+      'Led a $6M NSF-funded initiative to build a national SaaS platform aligning employer job descriptions, college outcomes, and skills standards for the semiconductor industry across NY, NC, and TX.',
+  },
+  {
+    org: 'Kingsborough Community College, CUNY',
+    role: 'Director of Workforce Programs',
+    period: '2017–2020',
+    description:
+      'Launched CUNY\'s first UX Design training program, achieving a 556% registration increase and establishing partnerships with Spotify and Google.',
+  },
+  {
+    org: 'Cypress Hills LDC',
+    role: 'Workforce Development Manager',
+    period: '2011–2017',
+    description:
+      'Created and directed the CHAMPION Network, a leadership development employment program for young adults achieving 95+ placements with 92% one-year retention.',
+  },
+];
+
+const methodologies = [
+  'Design Thinking',
+  'Product Management',
+  'Stakeholder Engagement',
+  'Systems Design',
+  'Data Analysis',
+  'Cohort-Based Learning',
+  'T-Group Facilitation',
+  'Curriculum Development',
+];
+
+const tools = [
+  'Airtable',
+  'Asana',
+  'Trello',
+  'Google Suite',
+  'Salesforce',
+  'Microsoft Office',
+  'Zoom',
+  'Slack',
+];
+---
+
+<Layout
+  title="About | Bryan Sanchinell"
+  description="Learn about Bryan Sanchinell's 15+ years leading workforce development programs across nonprofits, community colleges, national unions, and tech sectors."
+>
+
+  <!-- 1. NAVY — Hero -->
+  <section class="bg-[#0D2145] pt-24 pb-20 px-6 md:px-12">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-xs font-semibold uppercase tracking-widest text-[#4A90D9] mb-5">About Bryan</p>
+      <h1 class="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+        Worker-Centered.<br />
+        Data-Driven.<br />
+        Systems-Focused.
+      </h1>
+      <p class="text-lg text-[#A8B4C8] max-w-2xl leading-relaxed">
+        A workforce development executive who builds programs that deliver for people — not
+        just metrics.
+      </p>
+    </div>
+  </section>
+
+  <!-- 2. WHITE — Bio + Stats -->
+  <section class="bg-white border-t border-[#E2E8F0] py-16 px-6 md:px-12">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-5 gap-14 items-start">
+
+      <!-- Bio text (left) -->
+      <div class="md:col-span-3 space-y-5 text-[#4A5568] leading-relaxed">
+        <p>
+          Bryan Sanchinell is an Executive Director and workforce development strategist with
+          <strong class="text-[#0D2145] font-semibold">15+ years</strong> designing and leading
+          high-impact programs across nonprofits, community colleges, national unions, and tech
+          sectors.
+        </p>
+        <p>
+          He applies <strong class="text-[#0D2145] font-semibold">design thinking</strong> and
+          <strong class="text-[#0D2145] font-semibold">product management frameworks</strong> to build
+          recruitment pipelines, apprenticeship programs, and career pathways that center workers
+          while delivering measurable outcomes for organizations.
+        </p>
+        <p>
+          Bryan's work spans from on-the-ground program management to national systems design.
+          He has directed multi-million-dollar grants, built cross-sector partnerships with
+          industry leaders including Spotify and Google, and designed the first-ever National
+          Guideline Standards for 911 dispatchers — establishing career pathway benchmarks for
+          public safety professionals nationwide.
+        </p>
+        <p>
+          He holds an <strong class="text-[#0D2145] font-semibold">MS in Management</strong> from
+          The New School Milano School and is a Fellow of the
+          <strong class="text-[#0D2145] font-semibold">Aspen Institute Sector Skills Academy</strong>.
+          Bryan is bilingual in English and Spanish and brings cultural competency and
+          community-centered approaches to every engagement.
+        </p>
+        <div class="pt-2 flex flex-wrap gap-4 items-center">
+          <a
+            href="/contact"
+            class="inline-block bg-[#4A90D9] text-white font-medium px-7 py-3 rounded-full hover:bg-[#3A7BC8] transition-colors text-sm"
+          >
+            Work with Bryan
+          </a>
+          <div class="flex items-center gap-4 text-xs text-[#64748B]">
+            <span class="flex items-center gap-1.5">
+              <span class="w-6 h-6 rounded-full bg-[#4A90D9]/10 flex items-center justify-center text-[#4A90D9] font-bold text-[10px]">MS</span>
+              MS Management, The New School
+            </span>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-4 text-xs text-[#64748B]">
+          <span class="flex items-center gap-1.5">
+            <span class="w-6 h-6 rounded-full bg-[#4A90D9]/10 flex items-center justify-center text-[#4A90D9] font-bold text-[10px]">AS</span>
+            Aspen Institute Sector Skills Academy Fellow
+          </span>
+          <span class="flex items-center gap-1.5">
+            <span class="w-6 h-6 rounded-full bg-[#E2E8F0] flex items-center justify-center text-[10px]">🗣</span>
+            Bilingual · English &amp; Spanish
+          </span>
+        </div>
+      </div>
+
+      <!-- Stat grid (right) -->
+      <div class="md:col-span-2 grid grid-cols-2 gap-4">
+        {[
+          { label: 'Years of Experience', value: '15+' },
+          { label: 'Sectors Served', value: '5+' },
+          { label: 'Young Adults Placed', value: '95+' },
+          { label: 'Aspen Institute Fellow', value: '✓' },
+        ].map(({ label, value }) => (
+          <div class="bg-[#F5F2EC] rounded-xl p-5 border border-[#E2E8F0]">
+            <p class="text-2xl font-bold text-[#0D2145]">{value}</p>
+            <p class="text-xs text-[#64748B] mt-1 leading-snug">{label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. NAVY — Career Timeline -->
+  <section class="bg-[#0D2145] py-16 px-6 md:px-12">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-xs font-semibold uppercase tracking-widest text-[#4A90D9] mb-3">Career Path</p>
+      <h2 class="text-3xl font-bold text-white mb-14">15+ Years of Impact</h2>
+
+      <div class="relative">
+        <div class="absolute left-4 top-2 bottom-2 w-px bg-[rgba(74,144,217,0.2)] hidden sm:block"></div>
+        <div class="space-y-10">
+          {timeline.map(({ org, role, period, description }, i) => (
+            <div class="sm:pl-14 relative">
+              <div class={`absolute left-0 top-1.5 w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white hidden sm:flex ${i === 0 ? 'bg-[#4A90D9]' : 'bg-[rgba(74,144,217,0.2)]'}`}>
+                {timeline.length - i}
+              </div>
+              <div class="bg-[#1A3060] rounded-xl p-6 border border-[rgba(74,144,217,0.15)] hover:border-[rgba(74,144,217,0.45)] hover:shadow-md transition-all duration-200">
+                <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
+                  <div>
+                    <p class="font-semibold text-white">{org}</p>
+                    <p class="text-sm text-[#4A90D9]">{role}</p>
+                  </div>
+                  <span class={`text-xs font-medium px-3 py-1 rounded-full ${i === 0 ? 'bg-[#4A90D9] text-white' : 'bg-[rgba(74,144,217,0.1)] text-[#A8B4C8]'}`}>
+                    {period}
+                  </span>
+                </div>
+                <p class="text-sm text-[#A8B4C8] leading-relaxed mt-3">{description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. WHITE — Skills & Tools -->
+  <section class="bg-white border-t border-[#E2E8F0] py-16 px-6 md:px-12">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-xs font-semibold uppercase tracking-widest text-[#4A90D9] mb-3">Expertise</p>
+      <h2 class="text-3xl font-bold text-[#0D2145] mb-12">Skills &amp; Tools</h2>
+
+      <div class="grid md:grid-cols-2 gap-10">
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-[#64748B] mb-4">Methodologies</h3>
+          <div class="flex flex-wrap gap-2.5">
+            {methodologies.map((skill) => (
+              <span class="bg-white text-[#0D2145] text-sm font-medium px-4 py-1.5 rounded-full border border-[#CBD5E0]">
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-[#64748B] mb-4">Tools &amp; Platforms</h3>
+          <div class="flex flex-wrap gap-2.5">
+            {tools.map((tool) => (
+              <span class="bg-white text-[#0D2145] text-sm font-medium px-4 py-1.5 rounded-full border border-[#CBD5E0]">
+                {tool}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>

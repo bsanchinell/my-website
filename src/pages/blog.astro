@@ -1,0 +1,132 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const posts = [
+  {
+    title: 'Why Most Workforce Programs Fail Before They Start: A Systems Design Perspective',
+    excerpt:
+      'Most workforce programs set themselves up to fail in the design phase — not the execution phase. Here\'s how applying systems thinking from the start changes everything.',
+    tag: 'Systems Design',
+    date: 'February 2025',
+    readTime: '6 min read',
+  },
+  {
+    title: 'From Recruitment to Retention: Building Career Pathways That Actually Stick',
+    excerpt:
+      'A 556% increase in registrations means nothing if participants don\'t complete and land jobs. This is the framework I use to design pathways that go the distance.',
+    tag: 'Career Pathways',
+    date: 'January 2025',
+    readTime: '8 min read',
+  },
+  {
+    title: 'Design Thinking for Workforce Professionals: Putting Workers at the Center',
+    excerpt:
+      'Design thinking isn\'t just for tech companies. Here\'s how I apply human-centered design to build workforce programs that respond to what workers actually need.',
+    tag: 'Design Thinking',
+    date: 'December 2024',
+    readTime: '5 min read',
+  },
+];
+---
+
+<Layout
+  title="Blog | Bryan Sanchinell"
+  description="Insights on workforce development, program design, systems change, and career pathways from Bryan Sanchinell."
+>
+
+  <!-- 1. NAVY — Hero -->
+  <section class="bg-[#0D2145] pt-24 pb-20 px-6 md:px-12">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-xs font-semibold uppercase tracking-widest text-[#4A90D9] mb-5">Writing</p>
+      <h1 class="text-4xl md:text-5xl font-bold text-white leading-tight mb-5">
+        Thoughts on Workforce,<br class="hidden md:block" />
+        Design Thinking &amp; Systems Change
+      </h1>
+      <p class="text-lg text-[#A8B4C8] max-w-2xl leading-relaxed">
+        I share insights on LinkedIn — follow along for articles on workforce development,
+        program design, and career pathways.
+      </p>
+      <div class="mt-8">
+        <a
+          href="https://www.linkedin.com/in/bryan-sanchinell/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-3 bg-[#0A66C2] text-white font-medium px-6 py-3 rounded-full hover:bg-[#004182] transition-colors text-sm"
+        >
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+          </svg>
+          Follow on LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. WHITE — Blog Post Cards -->
+  <section class="bg-white border-t border-[#E2E8F0] py-16 px-6 md:px-12">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-xs font-semibold uppercase tracking-widest text-[#4A90D9] mb-10">Recent Articles</p>
+      <div class="space-y-6">
+        {posts.map(({ title, excerpt, tag, date, readTime }) => (
+          <a
+            href="https://www.linkedin.com/in/bryan-sanchinell/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block bg-white rounded-2xl border border-[#E2E8F0] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 group overflow-hidden"
+          >
+            <!-- Card header band -->
+            <div class="bg-[#F5F2EC] px-8 pt-6 pb-4 border-b border-[#E2E8F0]">
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="text-xs font-medium text-[#4A90D9] bg-white border border-[#E2E8F0] px-3 py-1 rounded-full">
+                  {tag}
+                </span>
+                <span class="text-xs text-[#64748B]">{date}</span>
+                <span class="text-xs text-[#64748B]">·</span>
+                <span class="text-xs text-[#64748B]">{readTime}</span>
+              </div>
+            </div>
+            <!-- Card body -->
+            <div class="px-8 py-6">
+              <h2 class="text-lg font-semibold text-[#0D2145] mb-3 group-hover:text-[#4A90D9] transition-colors leading-snug">
+                {title}
+              </h2>
+              <p class="text-sm text-[#4A5568] leading-relaxed mb-5">{excerpt}</p>
+              <span class="inline-flex items-center gap-2 text-xs font-medium text-[#4A90D9] group-hover:gap-3 transition-all">
+                Read on LinkedIn
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. NAVY — LinkedIn CTA Strip -->
+  <section class="bg-[#0D2145] py-16 px-6 md:px-12">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-xs font-semibold uppercase tracking-widest text-[#4A90D9] mb-4">Stay Connected</p>
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+        Get workforce insights in your feed
+      </h2>
+      <p class="text-[#A8B4C8] mb-8 max-w-lg mx-auto leading-relaxed">
+        I post regularly on LinkedIn about workforce development strategy, program design, and
+        the systems change work happening across the field.
+      </p>
+      <a
+        href="https://www.linkedin.com/in/bryan-sanchinell/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-3 bg-[#0A66C2] text-white font-medium px-7 py-3 rounded-full hover:bg-[#004182] transition-colors text-sm"
+      >
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+        </svg>
+        Follow Bryan on LinkedIn
+      </a>
+    </div>
+  </section>
+
+</Layout>

@@ -1,0 +1,142 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const services = [
+  {
+    title: 'Recruitment & Outreach Design',
+    description:
+      'Persona-driven strategies that expand your talent pipeline and increase access for underrepresented candidates. I design outreach campaigns, referral systems, and intake processes rooted in community insight and data.',
+    icon: `<svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+    </svg>`,
+  },
+  {
+    title: 'Stakeholder Engagement',
+    description:
+      'Building cross-sector partnerships with employers, funders, unions, and community organizations to align goals and drive buy-in. I facilitate stakeholder mapping, co-design sessions, and partnership agreements.',
+    icon: `<svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+    </svg>`,
+  },
+  {
+    title: 'Job Placement Systems',
+    description:
+      'End-to-end placement infrastructure including case management models, employer relationship building, and retention tracking. I design the systems that ensure participants land and stay in good jobs.',
+    icon: `<svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+    </svg>`,
+  },
+  {
+    title: 'Workflow & Operational Efficiency',
+    description:
+      'Auditing and redesigning program workflows, data systems, and reporting structures to improve outcomes and reduce friction. I bring product management discipline to program operations.',
+    icon: `<svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
+    </svg>`,
+  },
+  {
+    title: 'Leadership Development',
+    description:
+      'Facilitated cohort experiences, T-group processes, and coaching frameworks that develop emerging and frontline leaders. I design leadership curricula grounded in experiential learning and equity.',
+    icon: `<svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
+    </svg>`,
+  },
+  {
+    title: 'Team Development',
+    description:
+      'Building high-performing, cross-functional teams through accountability structures, collaboration tools, and performance management systems. I help organizations cultivate the internal capacity to sustain great programs.',
+    icon: `<svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
+    </svg>`,
+  },
+];
+---
+
+<Layout
+  title="Services | Bryan Sanchinell"
+  description="Workforce development consulting services: recruitment design, stakeholder engagement, job placement systems, operational efficiency, and leadership development."
+>
+
+  <!-- 1. NAVY — Hero -->
+  <section class="bg-[#0D2145] pt-24 pb-20 px-6 md:px-12">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-xs font-semibold uppercase tracking-widest text-[#4A90D9] mb-5">What I Do</p>
+      <h1 class="text-4xl md:text-5xl font-bold text-white leading-tight mb-5">
+        How I Help Organizations<br class="hidden md:block" /> Build Better Workforce Systems
+      </h1>
+      <p class="text-lg text-[#A8B4C8] max-w-2xl leading-relaxed">
+        From strategy to execution, I bring a systems design lens to every engagement —
+        helping organizations build programs that last.
+      </p>
+    </div>
+  </section>
+
+  <!-- 2. WHITE — Services Grid -->
+  <section class="bg-white border-t border-[#E2E8F0] py-16 px-6 md:px-12">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map(({ title, description, icon }, i) => (
+          <div class="bg-white rounded-2xl p-8 border border-[#E2E8F0] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 group">
+            <div class="flex items-start justify-between mb-5">
+              <div class="w-11 h-11 rounded-xl bg-[#4A90D9]/10 text-[#4A90D9] flex items-center justify-center group-hover:bg-[#4A90D9] group-hover:text-white transition-colors">
+                <div class="w-5 h-5" set:html={icon} />
+              </div>
+              <span class="text-xs font-bold text-[#4A90D9] tabular-nums">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+            </div>
+            <h3 class="text-base font-semibold text-[#0D2145] mb-3 group-hover:text-[#4A90D9] transition-colors">
+              {title}
+            </h3>
+            <p class="text-sm text-[#4A5568] leading-relaxed">{description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. NAVY — Process -->
+  <section class="bg-[#0D2145] py-16 px-6 md:px-12">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <p class="text-xs font-semibold uppercase tracking-widest text-[#4A90D9] mb-3">How I Work</p>
+        <h2 class="text-3xl font-bold text-white">My Approach</h2>
+      </div>
+      <div class="grid md:grid-cols-4 gap-6">
+        {[
+          { step: '01', label: 'Discover', desc: 'Deep listening sessions with stakeholders to understand the real challenge.' },
+          { step: '02', label: 'Design', desc: 'Co-creating solutions grounded in worker needs and organizational capacity.' },
+          { step: '03', label: 'Build', desc: 'Developing systems, tools, and processes that teams can actually use.' },
+          { step: '04', label: 'Measure', desc: 'Tracking the right metrics to demonstrate impact and drive iteration.' },
+        ].map(({ step, label, desc }) => (
+          <div class="bg-[#1A3060] rounded-2xl p-6 border border-[rgba(74,144,217,0.15)] text-center">
+            <div class="w-12 h-12 rounded-full bg-[#4A90D9] text-white font-bold text-sm flex items-center justify-center mx-auto mb-4">
+              {step}
+            </div>
+            <h3 class="font-semibold text-white mb-2">{label}</h3>
+            <p class="text-xs text-[#A8B4C8] leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. WHITE — CTA -->
+  <section class="bg-white border-t border-[#E2E8F0] py-16 px-6 md:px-12">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-xs font-semibold uppercase tracking-widest text-[#4A90D9] mb-4">Get Started</p>
+      <h2 class="text-3xl font-bold text-[#0D2145] mb-4">Let's talk about your workforce challenge</h2>
+      <p class="text-[#4A5568] mb-8 max-w-lg mx-auto leading-relaxed">
+        Every organization's needs are different. Let's find the right approach together.
+      </p>
+      <a
+        href="/contact"
+        class="inline-block bg-[#4A90D9] text-white font-semibold px-9 py-3.5 rounded-full hover:bg-[#3A7BC8] transition-colors text-sm"
+      >
+        Get in Touch
+      </a>
+    </div>
+  </section>
+
+</Layout>
