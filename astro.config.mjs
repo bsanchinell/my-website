@@ -10,7 +10,6 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   integrations: [
-    react(),
     sanity({
       projectId: 'qe8ugdbs',
       dataset: 'production',
@@ -19,5 +18,6 @@ export default defineConfig({
       studioBasePath: '/studio',
       studioRouterHistory: 'hash',
     }),
+    react(),
   ],
 });
