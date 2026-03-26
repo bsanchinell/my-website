@@ -1,11 +1,23 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-
 import tailwindcss from '@tailwindcss/vite';
+import sanity from '@sanity/astro';
+import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
   vite: {
-    plugins: [tailwindcss()]
-  }
+    plugins: [tailwindcss()],
+  },
+  integrations: [
+    react(),
+    sanity({
+      projectId: 'qe8ugdbs',
+      dataset: 'production',
+      useCdn: true,
+      apiVersion: '2024-01-01',
+      studioBasePath: '/studio',
+      studioRouterHistory: 'hash',
+    }),
+  ],
 });
