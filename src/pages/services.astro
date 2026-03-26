@@ -1,7 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { client } from '../lib/sanity';
 
-const services = [
+const sanityServices = await client
+  .fetch(`*[_type == "service"] | order(number asc) { title, number, description }`)
+  .catch(() => []);
+
+// Icons are hardcoded by position — paired with Sanity services or defaults
+const defaultServices = [
   {
     title: 'Recruitment & Outreach Design',
     description:
@@ -51,6 +57,15 @@ const services = [
     </svg>`,
   },
 ];
+
+// Merge: if Sanity has services, use their title/description but keep icons by position
+const services = (sanityServices.length > 0)
+  ? sanityServices.map((s: any, i: number) => ({
+      title: s.title ?? defaultServices[i]?.title ?? '',
+      description: s.description ?? defaultServices[i]?.description ?? '',
+      icon: defaultServices[i]?.icon ?? defaultServices[0].icon,
+    }))
+  : defaultServices;
 ---
 
 <Layout

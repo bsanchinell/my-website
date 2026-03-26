@@ -1,7 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { client } from '../lib/sanity';
 
-const timeline = [
+const sanity = await client.fetch(`*[_type == "about"][0]`).catch(() => null);
+
+// Timeline — Sanity fields: orgName, title, dates, description
+const defaultTimeline = [
   {
     org: 'AFSCME IU',
     role: 'Senior Workforce Advocate',
@@ -39,7 +43,16 @@ const timeline = [
   },
 ];
 
-const methodologies = [
+const timeline = (sanity?.timeline?.length > 0)
+  ? sanity.timeline.map((e: any) => ({
+      org: e.orgName ?? '',
+      role: e.title ?? '',
+      period: e.dates ?? '',
+      description: e.description ?? '',
+    }))
+  : defaultTimeline;
+
+const defaultMethodologies = [
   'Design Thinking',
   'Product Management',
   'Stakeholder Engagement',
@@ -49,6 +62,8 @@ const methodologies = [
   'T-Group Facilitation',
   'Curriculum Development',
 ];
+
+const methodologies = (sanity?.skills?.length > 0) ? sanity.skills : defaultMethodologies;
 
 const tools = [
   'Airtable',
@@ -201,7 +216,7 @@ const tools = [
         <div>
           <h3 class="text-sm font-semibold uppercase tracking-wider text-[#64748B] mb-4">Methodologies</h3>
           <div class="flex flex-wrap gap-2.5">
-            {methodologies.map((skill) => (
+            {methodologies.map((skill: string) => (
               <span class="bg-white text-[#0D2145] text-sm font-medium px-4 py-1.5 rounded-full border border-[#CBD5E0]">
                 {skill}
               </span>

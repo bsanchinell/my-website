@@ -1,7 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { client } from '../lib/sanity';
 
-const posts = [
+const sanityPosts = await client
+  .fetch(`*[_type == "blogPost"] | order(_createdAt desc) { title, category, linkedinUrl, excerpt }`)
+  .catch(() => []);
+
+const defaultPosts = [
   {
     title: 'Why Most Workforce Programs Fail Before They Start: A Systems Design Perspective',
     excerpt:
@@ -9,6 +14,7 @@ const posts = [
     tag: 'Systems Design',
     date: 'February 2025',
     readTime: '6 min read',
+    url: 'https://www.linkedin.com/in/bryan-sanchinell/',
   },
   {
     title: 'From Recruitment to Retention: Building Career Pathways That Actually Stick',
@@ -17,6 +23,7 @@ const posts = [
     tag: 'Career Pathways',
     date: 'January 2025',
     readTime: '8 min read',
+    url: 'https://www.linkedin.com/in/bryan-sanchinell/',
   },
   {
     title: 'Design Thinking for Workforce Professionals: Putting Workers at the Center',
@@ -25,8 +32,20 @@ const posts = [
     tag: 'Design Thinking',
     date: 'December 2024',
     readTime: '5 min read',
+    url: 'https://www.linkedin.com/in/bryan-sanchinell/',
   },
 ];
+
+const posts = (sanityPosts.length > 0)
+  ? sanityPosts.map((p: any) => ({
+      title: p.title ?? '',
+      excerpt: p.excerpt ?? '',
+      tag: p.category ?? '',
+      date: '',
+      readTime: '',
+      url: p.linkedinUrl ?? 'https://www.linkedin.com/in/bryan-sanchinell/',
+    }))
+  : defaultPosts;
 ---
 
 <Layout
@@ -67,9 +86,9 @@ const posts = [
     <div class="max-w-4xl mx-auto">
       <p class="text-xs font-semibold uppercase tracking-widest text-[#4A90D9] mb-10">Recent Articles</p>
       <div class="space-y-6">
-        {posts.map(({ title, excerpt, tag, date, readTime }) => (
+        {posts.map(({ title, excerpt, tag, date, readTime, url }) => (
           <a
-            href="https://www.linkedin.com/in/bryan-sanchinell/"
+            href={url}
             target="_blank"
             rel="noopener noreferrer"
             class="block bg-white rounded-2xl border border-[#E2E8F0] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 group overflow-hidden"
@@ -77,12 +96,14 @@ const posts = [
             <!-- Card header band -->
             <div class="bg-[#F5F2EC] px-8 pt-6 pb-4 border-b border-[#E2E8F0]">
               <div class="flex flex-wrap items-center gap-3">
-                <span class="text-xs font-medium text-[#4A90D9] bg-white border border-[#E2E8F0] px-3 py-1 rounded-full">
-                  {tag}
-                </span>
-                <span class="text-xs text-[#64748B]">{date}</span>
-                <span class="text-xs text-[#64748B]">·</span>
-                <span class="text-xs text-[#64748B]">{readTime}</span>
+                {tag && (
+                  <span class="text-xs font-medium text-[#4A90D9] bg-white border border-[#E2E8F0] px-3 py-1 rounded-full">
+                    {tag}
+                  </span>
+                )}
+                {date && <span class="text-xs text-[#64748B]">{date}</span>}
+                {date && readTime && <span class="text-xs text-[#64748B]">·</span>}
+                {readTime && <span class="text-xs text-[#64748B]">{readTime}</span>}
               </div>
             </div>
             <!-- Card body -->

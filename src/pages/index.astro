@@ -1,5 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { client } from '../lib/sanity';
+
+const sanity = await client.fetch(`*[_type == "homepage"][0]`).catch(() => null);
+
+const heroSubheadline = sanity?.heroSubheadline ??
+  '15+ years building recruitment, training, and career pathway programs that deliver real results for workers and organizations.';
+
+const aboutBio = sanity?.aboutBio ??
+  'Bryan Sanchinell is a leader and workforce development strategist who applies design thinking and product management frameworks to build programs that center workers while delivering measurable outcomes. He is a Fellow of the Aspen Institute Sector Skills Academy and bilingual in English and Spanish.';
+
+const stats = [
+  { stat: sanity?.stats?.budgets   ?? '$6M+',    label: 'Budgets Managed' },
+  { stat: sanity?.stats?.recruitment ?? '556%',  label: 'Recruitment Increase' },
+  { stat: sanity?.stats?.retention ?? '85–92%',  label: 'Job Retention Rates' },
+  { stat: sanity?.stats?.programs  ?? '9',       label: 'Programs Optimized' },
+];
 ---
 
 <Layout title="Bryan Sanchinell | Workforce Development Executive & Consultant">
@@ -15,8 +31,7 @@ import Layout from '../layouts/Layout.astro';
         That <span class="italic text-[#C9A84C]">Work</span> for People
       </h1>
       <p class="text-lg md:text-xl text-[#A8B4C8] max-w-2xl mx-auto mb-10 leading-relaxed">
-        15+ years building recruitment, training, and career pathway programs that deliver
-        real results for workers and organizations.
+        {heroSubheadline}
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
@@ -39,12 +54,7 @@ import Layout from '../layouts/Layout.astro';
   <section class="bg-white border-t border-[#E2E8F0] py-16 px-6 md:px-12">
     <div class="max-w-5xl mx-auto">
       <div class="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-[#E2E8F0]">
-        {[
-          { stat: '$6M+', label: 'Budgets Managed' },
-          { stat: '556%', label: 'Recruitment Increase' },
-          { stat: '85–92%', label: 'Job Retention Rates' },
-          { stat: '9', label: 'Programs Optimized' },
-        ].map(({ stat, label }) => (
+        {stats.map(({ stat, label }) => (
           <div class="text-center py-6 md:py-0 px-6">
             <p class="text-3xl md:text-4xl font-bold text-[#0D2145]">{stat}</p>
             <p class="text-sm text-[#64748B] mt-1.5">{label}</p>
@@ -103,7 +113,7 @@ import Layout from '../layouts/Layout.astro';
           Worker-Centered.<br />Data-Driven.<br />Systems-Focused.
         </h2>
         <p class="text-[#4A5568] leading-relaxed mb-8">
-          Bryan Sanchinell is a leader and workforce development strategist who applies design thinking and product management frameworks to build programs that center workers while delivering measurable outcomes. He is a Fellow of the Aspen Institute Sector Skills Academy and bilingual in English and Spanish.
+          {aboutBio}
         </p>
         <a
           href="/about"
